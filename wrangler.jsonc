@@ -1,0 +1,34 @@
+{
+  "name": "media-vault",
+  "main": "./workers/app.ts",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./public/",
+    "binding": "ASSETS"
+  },
+  "r2_buckets": [
+    {
+      "binding": "UPLOADS",
+      "bucket_name": "media-vault-uploads"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ITEMS",
+        "class_name": "ItemStore"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ItemStore"
+      ]
+    }
+  ]
+}
